@@ -1,3 +1,10 @@
+//Combination of Rain by Daniel Shiffman and Processing_SimpleColor_1Continuous
+//Takes in one continuous input
+//Maps hue to HSB value
+//Outputs rain of that color on white background
+//Changed rain stroke to (myHue, 255, 255)
+//Removed font specifications from initial color output
+
 //Necessary for OSC communication with Wekinator:
 import oscP5.*;
 import netP5.*;
