@@ -23,7 +23,7 @@ void oscEvent(OscMessage theOscMessage) {
         float receivedHue = theOscMessage.get(0).floatValue();
         float receivedVol = theOscMessage.get(1).floatValue();
         myHue = map(receivedHue, 0, 1, 0, 255);
-        myVol = map(receivedVol, 0, 1, 0, -40);
+        myVol = map(receivedVol, 0, 1, 0, -60);
         println(myHue + "hue " + myVol + "vol");
      } else {
         println("Error: unexpected OSC message received by Processing: ");
