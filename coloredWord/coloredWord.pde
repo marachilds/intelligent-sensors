@@ -16,9 +16,8 @@ void oscEvent(OscMessage theOscMessage) {
      if(theOscMessage.checkTypetag("ff")) { // looking for 2 control values
         float receivedFrame = theOscMessage.get(0).floatValue();
         float receivedAlpha = theOscMessage.get(1).floatValue();
-        myFrame = map(receivedFrame, 0, 1, 1, 30);
-        myAlpha = map(receivedAlpha, 0, 1, 0, 255);
-        println(myFrame + "frame " + myAlpha + "alpha");
+        myFrame = map(receivedFrame, 0, 1, 1, 60);
+        myAlpha = map(receivedAlpha, 0, 1, 0, 200);
      } else {
         println("Error: unexpected OSC message received by Processing: ");
         theOscMessage.print();
@@ -54,7 +53,7 @@ void draw() {
   frameRate(myFrame);
   for(int i=-0; i<200; i=i+10) {
     for(int j=-0; j<800; j=j+80) {
-      fill(random(abs(i-700)), random(abs(i-10)), random(abs(i-70)), myAlpha);
+      fill(random(abs(i-300)), random(abs(i-500)), random(abs(i-1000)), myAlpha);
       textFont(myFont, random(abs(i)));
       text("you", i, random(j+1));
     }
