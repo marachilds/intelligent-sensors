@@ -22,7 +22,7 @@ void oscEvent(OscMessage theOscMessage) {
      if(theOscMessage.checkTypetag("ff")) { // looking for 2 control values
         float receivedHue = theOscMessage.get(0).floatValue();
         float receivedVol = theOscMessage.get(1).floatValue();
-        myHue = map(receivedHue, 0, 1, 0, 255);
+        myHue = map(receivedHue, 0, 1, 125, 180);
         myVol = map(receivedVol, 0, 1, 0, -60);
         println(myHue + "hue " + myVol + "vol");
      } else {
@@ -68,7 +68,7 @@ class Drop {
   }
 
   void show() {
-    float thick = map(z, 0, 20, 1, 3);
+    float thick = map(z, 0, 20, 1, 2);
     strokeWeight(thick);
     stroke(myHue, 255, 255);
     line(x, y, x, y+len);
@@ -86,13 +86,13 @@ void setup() {
   player = minim.loadFile("rain.mp3");
   
   player.play();
-  player.setGain(-40);
+  player.setGain(-60);
   
   colorMode(HSB);
-  size(600,400, P3D);
+  size(1200, 900, P3D);
   smooth();
 
-  myHue = 100;
+  myHue = 0;
   sendOscNames();
 
   for (int i = 0; i < drops.length; i++) {
@@ -101,7 +101,7 @@ void setup() {
 }
 
 void draw() {
-  background(0, 0, 255);
+  background(145, 30, 200);
   
   player.setGain(myVol);
   
