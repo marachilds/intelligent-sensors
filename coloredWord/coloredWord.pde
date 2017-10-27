@@ -53,7 +53,7 @@ void draw() {
   frameRate(myFrame);
   for(int i=-0; i<200; i=i+10) {
     for(int j=-0; j<800; j=j+80) {
-      fill(random(abs(i-300)), random(abs(i-500)), random(abs(i-1000)), myAlpha);
+      fill(random(abs(i-400)), random(abs(i-100)), random(abs(i-600)), myAlpha);
       textFont(myFont, random(abs(i)));
       text("you", i, random(j+1));
     }

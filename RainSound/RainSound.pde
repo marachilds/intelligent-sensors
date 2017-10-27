@@ -24,7 +24,6 @@ void oscEvent(OscMessage theOscMessage) {
         float receivedVol = theOscMessage.get(1).floatValue();
         myHue = map(receivedHue, 0, 1, 125, 180);
         myVol = map(receivedVol, 0, 1, 0, -60);
-        println(myHue + "hue " + myVol + "vol");
      } else {
         println("Error: unexpected OSC message received by Processing: ");
         theOscMessage.print();
@@ -89,7 +88,7 @@ void setup() {
   player.setGain(-60);
   
   colorMode(HSB);
-  size(1200, 900, P3D);
+  fullScreen(P3D);
   smooth();
 
   myHue = 0;
